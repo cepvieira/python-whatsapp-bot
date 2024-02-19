@@ -84,10 +84,10 @@ def generate_response(message_body, wa_id, name):
         logging.info(f"Retrieving existing thread for {name} with wa_id {wa_id}")
         thread = client.beta.threads.retrieve(thread_id)
 
-        active_runs = client.beta.threads.runs.list(thread_id=thread_id, status="running")
-        while active_runs.data:
-            time.sleep(0.5)
-            active_runs = client.beta.threads.runs.list(thread_id=thread_id, status="running")
+        #active_runs = client.beta.threads.runs.list(thread_id=thread_id, status="running")
+       # while active_runs.data:
+         #   time.sleep(0.5)
+        #    active_runs = client.beta.threads.runs.list(thread_id=thread_id, status="running")
 
     # Add message to thread
     message = client.beta.threads.messages.create(
