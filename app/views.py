@@ -87,3 +87,15 @@ def webhook_post():
     return handle_message()
 
 
+# Rota para listar todas as threads
+@app.route('/threads', methods=['GET'])
+def list_threads():
+    threads = client.beta.threads.list()
+    return jsonify(threads.data)
+
+# Rota para mostrar os detalhes de uma thread específica
+@app.route('/threads/<thread_id>', methods=['GET'])
+def show_thread(thread_id):
+    thread = client.beta.threads.retrieve(thread_id)
+    return jsonify(thread)
+
